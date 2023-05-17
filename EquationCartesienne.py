@@ -48,8 +48,8 @@ def calculateReducedEquation(cartesianEquation):
 
 
 def message(pointA, guidingVector, cartesianEquation, reducedEquation):
-    print("")
-    print("")
+    print()
+    print()
     print("Fiche technique de la droite :")
     if cartesianEquation[2] <  0:
         if cartesianEquation[4] < 0:
@@ -69,7 +69,6 @@ def message(pointA, guidingVector, cartesianEquation, reducedEquation):
     print("Un point de la droite : A(" + str(pointA[0]) + ";" + str(pointA[1]) + ")")
 
 
-
 plt.title("Droite")
 plt.xlabel("x")
 plt.ylabel("y")
@@ -87,7 +86,7 @@ while index == 0:
 
     if (methode == 1):
 
-        print("")
+        print()
         pointA = input("Point A (x;y) : ").replace("(" , "").replace(")", "").replace("A", "").replace(",", ".").split(";")
         pointB = input("Point B (x;y) : ").replace("(" , "").replace(")", "").replace("B", "").replace(",", ".").split(";")
         try:
@@ -99,8 +98,7 @@ while index == 0:
                 pointA[i] = float(pointA[i])
                 pointB[i] = float(pointB[i])
 
-        data = withTwoPoint(pointA, pointB)
-        pointA, guidingVector, cartesianEquation, reducedEquation = data
+        pointA, guidingVector, cartesianEquation, reducedEquation = withTwoPoint(pointA, pointB)
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
 
@@ -117,7 +115,7 @@ while index == 0:
         index += 1
     elif (methode == 2):
 
-        print("")
+        print()
         pointA = input("Point A (x;y) : ").replace("(" , "").replace(")", "").replace("A", "").replace(",", ".").split(";")
         vectorAB = input("Vecteur u (x;y) : ").replace("(" , "").replace(")", "").replace("u", "").replace(",", ".").split(";")
         try:
@@ -129,8 +127,7 @@ while index == 0:
                 pointA[i] = float(pointA[i])
                 vectorAB[i] = float(vectorAB[i])
 
-        data = withOnePointOneVector(pointA, vectorAB)
-        pointA, guidingVector, cartesianEquation, reducedEquation = data
+        pointA, guidingVector, cartesianEquation, reducedEquation = withOnePointOneVector(pointA, vectorAB)
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
 
@@ -147,7 +144,7 @@ while index == 0:
         index += 1
     elif (methode == 3):
 
-        print("")
+        print()
         a = input("Valeur de a : ").replace(",", ".")
         b = input("Valeur de b : ").replace(",", ".")
         c = input("Valeur de c : ").replace(",", ".")
@@ -155,8 +152,8 @@ while index == 0:
             cartesianEquation = [int(a), "x", int(b), "y", int(c)]
         except ValueError:
             cartesianEquation = [float(a), "x", float(b), "y", float(c)]
-        data = withCartesianEquation(cartesianEquation)
-        pointA, guidingVector, cartesianEquation, reducedEquation = data
+
+        pointA, guidingVector, cartesianEquation, reducedEquation = withCartesianEquation(cartesianEquation)
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
 
@@ -173,7 +170,7 @@ while index == 0:
         index += 1
     elif (methode == 4):
 
-        print("")
+        print()
         m = input("Valeur de m : ").replace(",", ".")
         p = input("Valeur de p : ").replace(",", ".")
 
@@ -182,8 +179,7 @@ while index == 0:
         except ValueError:
             reducedEquation = [float(m), "x", float(p)]
         
-        data = withReducedEquation(reducedEquation)
-        pointA, guidingVector, cartesianEquation, reducedEquation = data
+        pointA, guidingVector, cartesianEquation, reducedEquation = withReducedEquation(reducedEquation)
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
 
@@ -199,6 +195,6 @@ while index == 0:
 
         index += 1
     else:
-        print("")
+        print()
         print("Saisie Incorect")
-        print("")
+        print()
