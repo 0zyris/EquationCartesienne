@@ -14,12 +14,16 @@ def withCartesianEquation(cartesianEquation):
     return(pointA, guidingVector, cartesianEquation, reducedEquation)
 
 def withReducedEquation(reducedEquation):
-    pointA = [2, reducedEquation[0]*2 + reducedEquation[2]]
-    pointB = [4, reducedEquation[0]*4 + reducedEquation[2]]
+    if reducedEquation[0] != 0:
+        pointA = [2, reducedEquation[0]*2 + reducedEquation[2]]
+        pointB = [4, reducedEquation[0]*4 + reducedEquation[2]]
+    else:
+        pointA = [2, reducedEquation[2]]
+        pointB = [4, reducedEquation[2]]
     vectorAB = [pointB[0] - pointA[0], pointB[1] - pointA[1]]
     cartesianEquation = calculateCartesianEquation(vectorAB, pointA)
     guidingVector = [-cartesianEquation[2], cartesianEquation[0]]
-    return(pointA, guidingVector, cartesianEquation, reducedEquation)
+    return (pointA, guidingVector, cartesianEquation, reducedEquation)
 
 def withOnePointOneVector(pointC, vectorAB):
     cartesianEquation = calculateCartesianEquation(vectorAB, pointC)
