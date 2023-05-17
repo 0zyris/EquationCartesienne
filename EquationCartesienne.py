@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def withTwoPoint(pointA,pointB):
     vectorAB = [pointB[0] - pointA[0], pointB[1] - pointA[1]]
     cartesianEquation = calculateCartesianEquation(vectorAB, pointA)
@@ -13,7 +15,7 @@ def withCartesianEquation(cartesianEquation):
 
 def withReducedEquation(reducedEquation):
     pointA = [2, reducedEquation[0]*2 + reducedEquation[2]]
-    pointB = [2, reducedEquation[0]*2 + reducedEquation[2]]
+    pointB = [4, reducedEquation[0]*4 + reducedEquation[2]]
     vectorAB = [pointB[0] - pointA[0], pointB[1] - pointA[1]]
     cartesianEquation = calculateCartesianEquation(vectorAB, pointA)
     guidingVector = [-cartesianEquation[2], cartesianEquation[0]]
@@ -64,6 +66,10 @@ def message(pointA, guidingVector, cartesianEquation, reducedEquation):
 
 
 
+plt.title("Droite")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True)
 
 index = 0
 while index == 0:
@@ -93,6 +99,17 @@ while index == 0:
         pointA, guidingVector, cartesianEquation, reducedEquation = data
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
+
+        pointB = [-2000, reducedEquation[0]*(-2000) + reducedEquation[2]]
+        pointC = [2000, reducedEquation[0]*2000 + reducedEquation[2]]
+        if reducedEquation[2] < 0:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " " + str(reducedEquation[2])))
+        else:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " + " + str(reducedEquation[2])))
+        plt.axis([0, 100, 0, 100])
+        plt.legend()
+        plt.show()
+
         index += 1
     elif (methode == 2):
 
@@ -112,6 +129,17 @@ while index == 0:
         pointA, guidingVector, cartesianEquation, reducedEquation = data
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
+
+        pointB = [-2000, reducedEquation[0]*(-2000) + reducedEquation[2]]
+        pointC = [2000, reducedEquation[0]*2000 + reducedEquation[2]]
+        if reducedEquation[2] < 0:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " " + str(reducedEquation[2])))
+        else:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " + " + str(reducedEquation[2])))
+        plt.axis([0, 100, 0, 100])
+        plt.legend()
+        plt.show()
+
         index += 1
     elif (methode == 3):
 
@@ -127,6 +155,17 @@ while index == 0:
         pointA, guidingVector, cartesianEquation, reducedEquation = data
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
+
+        pointB = [-2000, reducedEquation[0]*(-2000) + reducedEquation[2]]
+        pointC = [2000, reducedEquation[0]*2000 + reducedEquation[2]]
+        if reducedEquation[2] < 0:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " " + str(reducedEquation[2])))
+        else:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " + " + str(reducedEquation[2])))
+        plt.axis([0, 100, 0, 100])
+        plt.legend()
+        plt.show()
+
         index += 1
     elif (methode == 4):
 
@@ -138,11 +177,22 @@ while index == 0:
             reducedEquation = [int(m), "x", int(p)]
         except ValueError:
             reducedEquation = [float(m), "x", float(p)]
-
+        
         data = withReducedEquation(reducedEquation)
         pointA, guidingVector, cartesianEquation, reducedEquation = data
 
         message(pointA, guidingVector, cartesianEquation, reducedEquation)
+
+        pointB = [-2000, reducedEquation[0]*(-2000) + reducedEquation[2]]
+        pointC = [2000, reducedEquation[0]*2000 + reducedEquation[2]]
+        if reducedEquation[2] < 0:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " " + str(reducedEquation[2])))
+        else:
+            plt.plot([pointA[0], pointB[0], pointC[0]], [pointA[1], pointB[1], pointC[1]], label = ("Equation : " + str(reducedEquation[0]) + str(reducedEquation[1]) + " + " + str(reducedEquation[2])))
+        plt.axis([0, 100, 0, 100])
+        plt.legend()
+        plt.show()
+
         index += 1
     else:
         print("")
